@@ -77,9 +77,68 @@ function awake (user, userID, channelID, message, event){
 */
 function drunk (user, userID, channelID, message, event){
 
+message = message.slice(7,message.length);
+
+var values = message.split(" ");
+
+values[1] = parseInt(values[1], 10);
+values[2] = parseInt(values[2], 10)
+
+if (isInt(values[1]) && isInt(values[2])){
+
+	var drinksPerHour = values[1]/values[2]
+
+	if(drinksPerHour >= 2){
+
 	bot.sendMessage({
 		to: channelID,
-		message: "Your hammered! Please slow down!"
+		message: "Your on track to get hammered! Please be careful!"
 	});
 
+	}
+
+	else if (drinksPerHour >= 1 && drinksPerHour < 2) {
+	
+	bot.sendMessage({
+		to: channelID,
+		message: "Decent rate, stick to it (but maybe stop) and you'll be ok tomorrow!"
+	});
+
+	}
+
+	else if (drinksPerHour >= 0 && drinksPerHour < 1) {
+	
+	bot.sendMessage({
+		to: channelID,
+		message: "Excellent rate, you'll be fine in the morning... probably"
+	});
+
+
+	}
+
+	else {
+	bot.sendMessage({
+		to: channelID,
+		message: "Error does not compute!"
+	});
+
+	}
+}
+
+
+else {
+		bot.sendMessage({
+		to: channelID,
+		message: "Woah, please send integer values in the format: '~drunk? [#drinks] [time(hours)]'"
+	});
+}
+
+}
+
+
+/*
+* Snippet to check if its an integer
+*/
+function isInt(n){
+    return Number(n) === n && n % 1 === 0;
 }
