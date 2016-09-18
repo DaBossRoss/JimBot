@@ -1,0 +1,14 @@
+{
+  "name": "y",
+  "version": "0.0.1",
+  "description": "A bot that works with discord",
+  "main": "y",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ross Ellingworth",
+  "license": "MIT",
+  "dependencies": {
+    "discord.io": "^2.2.1"
+  }
+}
