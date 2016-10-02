@@ -11,3 +11,6 @@ exports.googleKey = 'key';
 
 //forecast.io Key
 exports.forecastKey = 'key';
+
+//league key
+exports.lolKey = 'key';
